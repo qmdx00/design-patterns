@@ -1,0 +1,8 @@
+# git ignore rules
+
+/.idea/
+/.vscode/
+/vendor/
+
+**/*.iml
+**/.DS_Store
