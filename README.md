@@ -4,7 +4,9 @@
 
 #### Data Structure
 
-- [x] Linked List
+- List
+    - [x] Sequence List
+    - [x] Linked List
 - [ ] Stack
 - [ ] Queue
 - [ ] Skip List
@@ -15,7 +17,10 @@
 - [ ] Graph
 
 #### Algorithm
-- [ ] Sort
+- Sort
+    - [x] Bubble Sort
+    - [ ] Quick Sort
+    - [ ] Insert Sort
 - [ ] KMP
 - [ ] AC
 - [ ] Greedy
