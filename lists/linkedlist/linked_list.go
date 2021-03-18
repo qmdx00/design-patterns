@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// LinkedList 单链表结构体，实现了 List 接口中的方法
+// LinkedList 带头节点的单链表实现
 // head 链表指向头节点的指针
 // size 链表中元素个数
 type LinkedList struct {

@@ -1,4 +1,4 @@
-package linkedlist
+package sequencelist
 
 import (
 	"fmt"
@@ -7,12 +7,12 @@ import (
 )
 
 func TestNewList(t *testing.T) {
-	list := NewList(1, 2, 3, 4)
-	t.Log(list.String())
+	list := NewList("hello", "world")
+	t.Log(list)
 }
 
-func TestLinkedList_Insert(t *testing.T) {
-	list := NewList("aaa", "bbb", "ccc")
+func TestSequenceList_Insert(t *testing.T) {
+	list := NewList(1, 2, 3)
 	t.Log(list)
 
 	index := 2
@@ -25,11 +25,11 @@ func TestLinkedList_Insert(t *testing.T) {
 	}
 }
 
-func TestLinkedList_Delete(t *testing.T) {
-	list := NewList(1, 2, 3)
+func TestSequenceList_Delete(t *testing.T) {
+	list := NewList("a", "b", "c", "d")
 	t.Log(list)
 
-	index := 1
+	index := 2
 	if value, err := list.Delete(index); err != nil {
 		t.Fatal(err.Error())
 	} else {
@@ -38,14 +38,14 @@ func TestLinkedList_Delete(t *testing.T) {
 	}
 }
 
-func TestLinkedList_Get(t *testing.T) {
-	list := NewList("hello", "world", "something")
+func TestSequenceList_Get(t *testing.T) {
+	list := NewList("a", "b", "c")
 
 	index := 1
 	if value, err := list.Get(index); err != nil {
 		t.Fatal(err.Error())
 	} else {
-		t.Log(list)
 		t.Logf(common.C.PrintMsg(common.Yellow, fmt.Sprintf("Get %v at pos %d", value, index)))
+		t.Log(list)
 	}
 }
