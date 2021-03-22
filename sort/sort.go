@@ -26,6 +26,10 @@ func (s *Sorter) Less(x, y interface{}) bool {
 	return s.comparator(x, y)
 }
 
+func (s *Sorter) More(x, y interface{}) bool {
+	return s.comparator(y, x)
+}
+
 func (s *Sorter) Swap(x, y int) {
 	s.Values[x], s.Values[y] = s.Values[y], s.Values[x]
 }

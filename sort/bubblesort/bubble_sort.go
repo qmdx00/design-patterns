@@ -12,7 +12,7 @@ func (*BubbleSort) Sort(s sort.Sorter) sort.Sorter {
 
 		flag := false
 		for j := 0; j < s.Len()-i-1; j++ {
-			if s.Less(s.Values[j+1], s.Values[j]) {
+			if s.More(s.Values[j], s.Values[j+1]) {
 				s.Swap(j, j+1)
 				flag = true
 			}
