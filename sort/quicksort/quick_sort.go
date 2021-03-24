@@ -8,6 +8,9 @@ type QuickSort struct {
 }
 
 func (q *QuickSort) Sort(s sort.Sorter) sort.Sorter {
+	if s.Len() <= 1 {
+		return s
+	}
 	qSort(s, 0, s.Len()-1)
 	return s
 }
@@ -33,7 +36,6 @@ func partition(s sort.Sorter, l, h int) int {
 	s.Swap(pivot, index-1)
 	return index - 1
 }
-
 
 func partition2(s sort.Sorter, l, h int) int {
 	pivot := s.Values[l]

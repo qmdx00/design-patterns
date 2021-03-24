@@ -19,8 +19,8 @@
 #### Algorithm
 - Sort
     - [x] Bubble Sort
-    - [ ] Quick Sort
-    - [ ] Insert Sort
+    - [x] Quick Sort
+    - [x] Insert Sort
 - [ ] KMP
 - [ ] AC
 - [ ] Greedy
