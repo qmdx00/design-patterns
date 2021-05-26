@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gods/pkg/lists/sequencelist"
+	"github.com/qmdx00/gods/pkg/lists/sequencelist"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gods/pkg/lists/linkedlist"
+	"github.com/qmdx00/gods/pkg/lists/linkedlist"
 )
 
 func main() {
