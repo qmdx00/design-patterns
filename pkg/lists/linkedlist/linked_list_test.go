@@ -2,7 +2,6 @@ package linkedlist
 
 import (
 	"fmt"
-	"gods/common"
 	"testing"
 )
 
@@ -20,7 +19,7 @@ func TestLinkedList_Insert(t *testing.T) {
 	if err := list.Insert(index, value); err != nil {
 		t.Fatal(err.Error())
 	} else {
-		t.Logf(common.C.PrintMsg(common.Yellow, fmt.Sprintf("Insert %v at pos %d", value, index)))
+		t.Logf("Insert %v at pos %d", value, index)
 		t.Log(list)
 	}
 }
@@ -33,7 +32,7 @@ func TestLinkedList_Delete(t *testing.T) {
 	if value, err := list.Delete(index); err != nil {
 		t.Fatal(err.Error())
 	} else {
-		t.Logf(common.C.PrintMsg(common.Yellow, fmt.Sprintf("Delete %v at pos %d", value, index)))
+		t.Logf("Delete %v at pos %d", value, index)
 		t.Log(list)
 	}
 }
@@ -46,6 +45,6 @@ func TestLinkedList_Get(t *testing.T) {
 		t.Fatal(err.Error())
 	} else {
 		t.Log(list)
-		t.Logf(common.C.PrintMsg(common.Yellow, fmt.Sprintf("Get %v at pos %d", value, index)))
+		t.Logf(fmt.Sprintf("Get %v at pos %d", value, index))
 	}
 }

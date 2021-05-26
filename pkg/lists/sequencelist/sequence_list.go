@@ -3,7 +3,6 @@ package sequencelist
 import (
 	"errors"
 	"fmt"
-	"gods/common"
 	"strings"
 )
 
@@ -42,8 +41,7 @@ func NewList(values ...interface{}) *SequenceList {
 
 func (l *SequenceList) Insert(idx int, value interface{}) error {
 	if idx < 0 || idx > l.size {
-		return errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ SequenceList [ Insert Error ]: invalid position: %v, it should in [0, %d] }", idx, l.size)))
+		return errors.New(fmt.Sprintf("{ SequenceList [ Insert Error ]: invalid position: %v, it should in [0, %d] }", idx, l.size))
 	}
 
 	// 扩容
@@ -65,8 +63,7 @@ func (l *SequenceList) Insert(idx int, value interface{}) error {
 
 func (l *SequenceList) Delete(idx int) (interface{}, error) {
 	if idx < 0 || idx >= l.size {
-		return nil, errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ SequenceList [ Delete Error ]: invalid position: %v, it should in [0, %d) }", idx, l.size)))
+		return nil, errors.New(fmt.Sprintf("{ SequenceList [ Delete Error ]: invalid position: %v, it should in [0, %d) }", idx, l.size))
 	}
 
 	item := l.items[idx]
@@ -80,8 +77,7 @@ func (l *SequenceList) Delete(idx int) (interface{}, error) {
 
 func (l *SequenceList) Get(idx int) (interface{}, error) {
 	if idx < 0 || idx >= l.size {
-		return nil, errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ SequenceList [ Get Error ]: Out of boundary, it should in [0, %d) }", l.size)))
+		return nil, errors.New(fmt.Sprintf("{ SequenceList [ Get Error ]: Out of boundary, it should in [0, %d) }", l.size))
 	}
 
 	return l.items[idx].data, nil
@@ -111,7 +107,7 @@ func (l SequenceList) String() string {
 
 	str += strings.Join(values, ", ")
 
-	return common.C.PrintMsg(common.Green, str)
+	return str
 }
 
 func (l *SequenceList) growth() {
@@ -119,4 +115,8 @@ func (l *SequenceList) growth() {
 	newItems := make([]element, l.cap, l.cap)
 	copy(newItems, l.items)
 	l.items = newItems
+}
+
+func (l SequenceList) Size() int {
+	return l.size
 }

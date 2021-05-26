@@ -7,4 +7,5 @@ type List interface {
 	Get(int) (interface{}, error)    // 获取指定索引处的元素并返回
 	Traverse(func(interface{}))      // 遍历链表并用指定函数处理每个元素
 	Clear()                          // 清空链表
+	Size() int                       // 获取链表大小
 }

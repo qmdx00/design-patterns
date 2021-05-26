@@ -3,7 +3,6 @@ package linkedlist
 import (
 	"errors"
 	"fmt"
-	"gods/common"
 	"strings"
 )
 
@@ -36,8 +35,7 @@ func NewList(values ...interface{}) *LinkedList {
 
 func (l *LinkedList) Insert(idx int, value interface{}) error {
 	if idx < 0 || idx > l.size {
-		return errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ LinkList [ Insert Error ]: invalid position: %v, it should in [0, %d] }", idx, l.size)))
+		return errors.New(fmt.Sprintf("{ LinkList [ Insert Error ]: invalid position: %v, it should in [0, %d] }", idx, l.size))
 	}
 
 	pos := l.head
@@ -55,8 +53,7 @@ func (l *LinkedList) Insert(idx int, value interface{}) error {
 
 func (l *LinkedList) Delete(idx int) (interface{}, error) {
 	if idx < 0 || idx >= l.size {
-		return nil, errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ LinkList [ Delete Error ]: invalid position: %v, it should in [0, %d) }", idx, l.size)))
+		return nil, errors.New(fmt.Sprintf("{ LinkList [ Delete Error ]: invalid position: %v, it should in [0, %d) }", idx, l.size))
 	}
 
 	pos := l.head
@@ -74,8 +71,7 @@ func (l *LinkedList) Delete(idx int) (interface{}, error) {
 
 func (l *LinkedList) Get(idx int) (interface{}, error) {
 	if idx < 0 || idx >= l.size {
-		return nil, errors.New(common.C.PrintMsg(common.Red,
-			fmt.Sprintf("{ LinkList [ Get Error ]: Out of boundary, it should in [0, %d) }", l.size)))
+		return nil, errors.New(fmt.Sprintf("{ LinkList [ Get Error ]: Out of boundary, it should in [0, %d) }", l.size))
 	}
 
 	pos := l.head
@@ -100,7 +96,7 @@ func (l *LinkedList) String() string {
 	})
 	str += strings.Join(values, " -> ")
 
-	return common.C.PrintMsg(common.Green, str)
+	return str
 }
 
 func (l *LinkedList) Traverse(visit func(interface{})) {
@@ -108,3 +104,8 @@ func (l *LinkedList) Traverse(visit func(interface{})) {
 		visit(item.data)
 	}
 }
+
+func (l *LinkedList) Size() int {
+	return l.size
+}
+
