@@ -18,17 +18,17 @@ type AsyncEventBus struct {
 	mu    sync.Mutex
 }
 
+func NewAsyncEventBus() Bus {
+	return &AsyncEventBus{
+		store: map[string]chan Event{},
+		mu:    sync.Mutex{},
+	}
+}
+
 func (a *AsyncEventBus) Subscribe(topic string, ch <-chan Event) {
 	panic("implement me")
 }
 
 func (a *AsyncEventBus) Publish(topic string, ch chan<- Event) {
 	panic("implement me")
-}
-
-func NewAsyncEventBus() Bus {
-	return &AsyncEventBus{
-		store: map[string]chan Event{},
-		mu:    sync.Mutex{},
-	}
 }
